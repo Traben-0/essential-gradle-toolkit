@@ -2,6 +2,10 @@ package gg.essential.defaults
 
 import dev.architectury.pack200.java.Pack200Adapter
 import gg.essential.gradle.multiversion.Platform
+import gradle.kotlin.dsl.accessors._85e83f8996e413ca390c020da0f07379.loom
+import gradle.kotlin.dsl.accessors._85e83f8996e413ca390c020da0f07379.mappings
+import gradle.kotlin.dsl.accessors._85e83f8996e413ca390c020da0f07379.minecraft
+import gradle.kotlin.dsl.accessors._85e83f8996e413ca390c020da0f07379.modImplementation
 
 plugins {
     id("gg.essential.loom")

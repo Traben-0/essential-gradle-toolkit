@@ -19,5 +19,5 @@ jobs:
       - name: Publish
         run: ./gradlew publish --stacktrace
         env:
-          ORG_GRADLE_PROJECT_nexus_user: ${{ secrets.NEXUS_USER }}
-          ORG_GRADLE_PROJECT_nexus_password: ${{ secrets.NEXUS_PASSWORD }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

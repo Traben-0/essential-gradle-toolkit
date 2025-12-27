@@ -3,7 +3,7 @@ plugins {
     `maven-publish`
 }
 
-group = "gg.essential"
+group = "com.github.traben-0"
 version = "0.6.11-test2"
 
 java.withSourcesJar()
@@ -35,15 +35,12 @@ dependencies {
 
 publishing {
     repositories {
-        val nexusUser = project.findProperty("nexus_user")
-        val nexusPassword = project.findProperty("nexus_password")
-        if (nexusUser != null && nexusPassword != null) {
-            maven("https://repo.essential.gg/repository/maven-releases/") {
-                name = "nexus-public"
-                credentials {
-                    username = nexusUser.toString()
-                    password = nexusPassword.toString()
-                }
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/Traben-0/essential-gradle-toolkit")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
             }
         }
     }

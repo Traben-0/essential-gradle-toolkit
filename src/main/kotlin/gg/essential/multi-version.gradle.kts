@@ -3,8 +3,11 @@ package gg.essential
 import com.replaymod.gradle.preprocess.PreprocessExtension
 import com.replaymod.gradle.preprocess.PreprocessPlugin
 import gg.essential.gradle.multiversion.Platform
+import gradle.kotlin.dsl.accessors._3743b5a2d0979aeed8493201d618fc18.base
+import gradle.kotlin.dsl.accessors._3743b5a2d0979aeed8493201d618fc18.javaToolchains
+import gradle.kotlin.dsl.accessors._3743b5a2d0979aeed8493201d618fc18.processResources
 import net.fabricmc.loom.api.LoomGradleExtensionAPI
-import net.fabricmc.loom.bootstrap.LoomGradlePluginBootstrap
+import net.fabricmc.loom.LoomGradlePlugin
 import net.fabricmc.loom.task.RunGameTask
 import org.gradle.api.Project
 import org.gradle.api.plugins.BasePluginExtension
@@ -30,7 +33,7 @@ parent?.let(::inheritConfigurationFrom)
 fun setupLoomPlugin() {
     extra.set("loom.platform", platform.loaderStr)
 
-    apply<LoomGradlePluginBootstrap>()
+    apply<LoomGradlePlugin>()
 
     extensions.configure<LoomGradleExtensionAPI> {
         runConfigs.all {
@@ -115,6 +118,7 @@ fun inheritConfigurationFrom(parent: Project) {
     // Inherit base archives name from parent, suffixed with the project name
     val parentBase = parent.extensions.findByType<BasePluginExtension>()
     if (parentBase != null) {
+
         base.archivesName.convention(parentBase.archivesName.map { "$it ${project.name}" })
     } else {
         base.archivesName.convention("${parent.name} ${project.name}")

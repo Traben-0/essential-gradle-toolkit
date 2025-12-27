@@ -3,7 +3,7 @@ plugins {
     `maven-publish`
 }
 
-group = "com.github.traben-0"
+group = "gg.essential"
 version = "0.6.11-test2"
 
 java.withSourcesJar()
